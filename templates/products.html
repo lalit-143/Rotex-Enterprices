@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Rotex Enterprises - Products</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/css/preloadar.css' %}" />
+
+    <meta name="apple-mobile-web-app-title" content="Rotex" />
+    <link rel="icon" type="image/png" href="{% static 'assets/favicon/favicon-96x96.png' %}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'assets/favicon/favicon.svg' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/favicon/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/favicon/apple-touch-icon.png' %}" />
+    <link rel="manifest" href="{% static 'assets/favicon/site.webmanifest' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://public.codepenassets.com/css/normalize-5.0.0.min.css"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/product.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/quote.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/mytailwind.css' %}" />
+  </head>
+
+  <body>
+    <div class="loader-wrapper">
+      <div class="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <img src="{% static 'assets/logo/logo_trans.png' %}" alt="Rotex Enterprises Logo" class="logo-img">
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a class="alink" href="/products">Products</a>
+          <a href="/industries">Industries</a>
+          <a href="/quality">Quality</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+      <h1 class="hero-title">Products &amp; Services</h1>
+      <p class="hero-subtitle">
+        Your trusted partner for industrial products and services
+      </p>
+      <div class="hero-buttons">
+        <button
+          class="btn-secondary"
+          onclick="smoothScrollTo('our-services', 2000);"
+        >
+          Our Services
+        </button>
+      </div>
+    </section>
+
+    <div class="category-filter">
+      <button class="cat-btn" onclick="filterCategory('all')">All</button>
+      <button class="cat-btn" onclick="filterCategory('Display Rack System')">Display Rack</button>
+      <button class="cat-btn" onclick="filterCategory('Railing System')">Railing System</button>
+      <button class="cat-btn" onclick="filterCategory('Industrial Piping Solutions')">Industrial Piping</button>
+      <button class="cat-btn" onclick="filterCategory('Pharma Furniture')">Pharma Furniture</button>
+      <button class="cat-btn" onclick="filterCategory('Barricades')">Barricades</button>
+    </div>
+
+    <section class="section">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for p in products %}
+        <div data-category="{{ p.category }}" onclick="openModal('product{{ p.id }}', {{ p.id }})" class="card fade-in cursor-pointer" id="product{{ p.id }}">
+            <img alt="{{ p.name }}" class="card-img" style="object-fit: cover; object-position: center;" src="/media/{{ p.image }}" loading="lazy" />
+            <div class="card-content">
+                <h3 class="card-title">{{ p.name }}</h3>
+                <p class="card-text line-clamp-2">{{ p.description }}</p>
+                <ul class="list-disc list-inside text-gray-600 mb-4 hidden">
+                    {% if p.specs %}
+                        {% for item in p.specs %}
+                        <li class="flex items-start specs-item hover:bg-blue-50 p-1 rounded-md transition-colors duration-200">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>{{ item }}</span>
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                <a id="openModal" class="get-quote-btn transition duration-300">Get Best Price</a>
+            </div>
+        </div>
+        {% endfor %}
+        
+
+      </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section id="our-services" class="section">
+      <h2 class="text-3xl font-bold text-center mb-8 fade-in">Our Services</h2>
+      <p class="text-gray-600 text-center mb-12 fade-in">
+        Comprehensive support for your business
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="service-card fade-in">
+          <i class="fas fa-tools service-icon"></i>
+          <h3 class="service-title">Installation &amp; Setup</h3>
+          <p class="service-text">
+            Professional installation and configuration of all equipment.
+          </p>
+        </div>
+        <div class="service-card fade-in">
+          <i class="fas fa-cogs service-icon"></i>
+          <h3 class="service-title">Maintenance Services</h3>
+          <p class="service-text">
+            Regular maintenance and support to ensure optimal performance.
+          </p>
+        </div>
+        <div class="service-card fade-in">
+          <i class="fas fa-headset service-icon"></i>
+          <h3 class="service-title">Technical Support</h3>
+          <p class="service-text">
+            24/7 technical assistance and problem resolution.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Documentation Section -->
+    <section class="download-section">
+      <div class="container mx-auto px-4 text-center fade-in">
+        <h2 class="text-2xl font-bold mb-4">Product Documentation</h2>
+        <p class="text-gray-600 mb-8">
+          Download our complete product catalog and technical specifications
+        </p>
+        <a class="download-button" href="#">
+          <i class="fas fa-download download-icon"></i>
+          Download Product Catalog
+        </a>
+      </div>
+    </section>
+
+    <!-- Modal Backdrop -->
+    <div
+      style="z-index: 99999"
+      class="fixed inset-0 bg-black bg-opacity-60 backdrop hidden flex items-center justify-center z-50 p-3 sm:p-4 md:p-5 animate-fadeIn"
+      id="productModal"
+    >
+      <!-- Modal Container -->
+      <div
+        class="modal-container bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-4xl mx-auto animate-scaleIn"
+      >
+        <!-- Modal Wrapper to ensure header and footer stay visible -->
+        <div class="modal-wrapper">
+          <!-- Modal Header - Fixed at top -->
+          <div
+            class="p-1 md:p-2 border-b bg-gradient-to-r from-blue-50 to-indigo-50 flex justify-between items-center z-10 animate-slideIn"
+          >
+            <div class="flex items-center space-x-3">
+              <!-- <div class="ml-2 w-6 h-6 bg-blue-600 rounded-lg flex items-center justify-center text-white">
+                            <i class="fas fa-box"></i>
+                        </div> -->
+              <h2
+                id="modalProductTitle"
+                class="ml-3 text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-800"
+              >
+                Premium Product
+              </h2>
+            </div>
+            <button
+              class="text-gray-500 hover:text-gray-800 hover:bg-gray-200 p-2 rounded-full transition duration-300 focus:outline-none hover-lift"
+              id="closeModal"
+              aria-label="Close modal"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <!-- Modal Content - Scrollable -->
+          <div class="modal-body">
+            <div class="flex flex-col sm:flex-row">
+              <!-- Image Section -->
+              <div class="p-3 sm:p-4 md:p-6 animate-slideIn delay-100">
+                <div
+                  class="img-container shadow-lg h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden"
+                >
+                  <img
+                    id="mainProductImage"
+                    src="https://storage.googleapis.com/a1aa/image/p0NAgCxbC57v1IZ659dXCyf-ecgHIygVp9-7srqmQX0.jpg"
+                    alt="Product Image"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <!-- Image Gallery Thumbnails -->
+                <!-- <div class="flex mt-3 sm:mt-4 space-x-2 justify-center sm:justify-start">
+                                <button class="thumbnail h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 border-2 border-blue-500 rounded-md overflow-hidden flex-shrink-0 shadow-sm" onclick="changeImage(this, 'https://storage.googleapis.com/a1aa/image/p0NAgCxbC57v1IZ659dXCyf-ecgHIygVp9-7srqmQX0.jpg')">
+                                    <img src="https://storage.googleapis.com/a1aa/image/p0NAgCxbC57v1IZ659dXCyf-ecgHIygVp9-7srqmQX0.jpg" alt="Thumbnail 1" class="h-full w-full object-cover">
+                                </button>
+                                <button class="thumbnail h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 border-2 border-gray-200 rounded-md overflow-hidden hover:border-blue-500 transition flex-shrink-0 shadow-sm" onclick="changeImage(this, 'https://storage.googleapis.com/a1aa/image/p0NAgCxbC57v1IZ659dXCyf-ecgHIygVp9-7srqmQX0.jpg')">
+                                    <div class="bg-blue-100 h-full w-full flex items-center justify-center">
+                                        <i class="fas fa-image text-blue-400"></i>
+                                    </div>
+                                </button>
+                                <button class="thumbnail h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 border-2 border-gray-200 rounded-md overflow-hidden hover:border-blue-500 transition flex-shrink-0 shadow-sm" onclick="changeImage(this, 'https://storage.googleapis.com/a1aa/image/p0NAgCxbC57v1IZ659dXCyf-ecgHIygVp9-7srqmQX0.jpg')">
+                                    <div class="bg-indigo-100 h-full w-full flex items-center justify-center">
+                                        <i class="fas fa-image text-indigo-400"></i>
+                                    </div>
+                                </button>
+                            </div> -->
+              </div>
+              <!-- Description Section -->
+              <div
+                class="w-full sm:w-3/4 p-3 sm:p-4 md:p-6 lg:border-l animate-slideIn delay-200"
+              >
+                <div
+                  class="bg-yellow-50 border-l-4 border-yellow-400 p-2 sm:p-3 mb-3 sm:mb-4 rounded-md animate-slideIn delay-100"
+                >
+                  <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-500 mr-2"></i>
+                    <span class="font-medium text-xs sm:text-sm md:text-base"
+                      >Top Quality Service</span
+                    >
+                  </div>
+                </div>
+
+                <h3
+                  class="text-lg sm:text-xl font-bold text-gray-800 mb-2 animate-slideIn delay-200"
+                >
+                  Product / Services Overview
+                </h3>
+                <p
+                  id="modalProductDescription"
+                  class="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-4 animate-slideIn delay-200"
+                ></p>
+
+                <div
+                  class="bg-gray-50 p-3 sm:p-4 rounded-xl mb-3 sm:mb-4 border border-gray-100 animate-slideIn delay-300"
+                >
+                  <ul
+                    id="modalProductSpecs"
+                    class="space-y-1 sm:space-y-2 text-xs sm:text-sm md:text-base text-gray-700"
+                  >
+                
+                </ul>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Footer - Fixed at bottom -->
+          <div
+            class="p-3 sm:p-3 md:p-4 border-t bg-gradient-to-r from-gray-50 to-blue-50 w-full z-10 animate-slideIn delay-300"
+          >
+            <div class="max-w-xl mx-auto">
+
+              <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                <form id="QuoteForm" style="display: contents">
+                  <div class="relative flex-grow">
+                    <input
+                      type="text"
+                      id="contact"
+                      placeholder="Enter your mobile number or email id"
+                      class="w-full pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm md:text-base"
+                      style="border-radius: 1.5rem; padding-left: 1rem;"
+                      required
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    id="submitQuote"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:shadow-lg transition duration-300 flex items-center justify-center whitespace-nowrap text-xs sm:text-sm md:text-base button-hover"
+                    style="border-radius: 1.5rem"
+                  >
+                    <span>Get Quote</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                    <div class="btn-loader"></div>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div
+      id="thankYouModal"
+      style="z-index: 99999"
+      class="fixed inset-0 bg-black bg-opacity-60 backdrop hidden flex items-center justify-center z-50 p-3 sm:p-4 md:p-5 animate-fadeIn"
+    >
+      <div class="modal-content thank-you ty-content">
+        <i class="fas fa-check-circle"></i>
+        <h2 class="text-2xl font-bold m-2">Thank You!</h2>
+        <p>
+          Your enquiry has been submitted successfully. We will contact you very
+          soon
+        </p>
+      </div>
+    </div>
+
+    <!-- Snackbar -->
+    <div id="snackbar"></div>
+
+    <script>
+      window.addEventListener("load", function () {
+        document.querySelector("body").classList.add("loaded");
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script src="{% static 'assets/js/product.js' %}"></script>
+    <script src="{% static 'assets/js/quote.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotex Enterprises</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/css/preloadar.css' %}" />
+
+    <meta name="apple-mobile-web-app-title" content="Rotex" />
+    <link rel="icon" type="image/png" href="{% static 'assets/favicon/favicon-96x96.png' %}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'assets/favicon/favicon.svg' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/favicon/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/favicon/apple-touch-icon.png' %}" />
+    <link rel="manifest" href="{% static 'assets/favicon/site.webmanifest' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://public.codepenassets.com/css/normalize-5.0.0.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="{% static 'assets/css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/enq-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/card-slider.css' %}" />
+  </head>
+
+  <body>
+    <div class="loader-wrapper">
+      <div class="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <div class="logo">
+          <img src="{% static 'assets/logo/logo_trans.png' %}" alt="Rotex Enterprises Logo" class="logo-img">
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a class="alink" href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/products">Products</a>
+          <a href="/industries">Industries</a>
+          <a href="/quality">Quality</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero"
+      style="
+        background: url('{% static 'assets/img/hero_bg.jpg' %}') no-repeat
+          center center/cover;
+      "
+    >
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Engineering Through Innovation</h1>
+        <p>
+          Leading provider of industrial solutions and retail showrooms with a commitment to quality and innovation.
+        </p>
+        <div class="hero-buttons">
+          <a href="products" class="btn-primary">Explore Our Products</a>
+          <a href="contact" class="btn-secondary">
+            Contact Us
+            <i
+              class="fas fa-phone"
+              style="font-size: 0.9rem; padding-left: 5px"
+            ></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Offerings -->
+    <section class="key-offerings nopx">
+      <div class="container text-center">
+        <h2>Our Key Offerings</h2>
+        <p>Comprehensive solutions for your industrial needs</p>
+        <div class="offerings-grid">
+          <div class="offering">
+            <i class="fas fa-cogs icon"></i>
+            <h3>Innovative Solutions</h3>
+            <p>Cutting-edge industrial products tailored to your needs.</p>
+            <a href="products"
+              >View Products <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+          <div class="offering">
+            <i class="fas fa-user-tie icon"></i>
+            <h3>Industry Leadership</h3>
+            <p>Committed to quality, innovation, and customer success</p>
+            <a href="about">About Us <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="offering">
+            <i class="fas fa-check-circle icon"></i>
+            <h3>Quality Assurance</h3>
+            <p>Recognized for safety, performance, and reliability.</p>
+            <a href="quality/#our-certificate"
+              >View Certifications <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats nopx">
+      <div class="container text-center">
+        <div class="stats-grid">
+          <div>
+            <h3 class="counter" data-target="100%">0</h3>
+            <p>Client Satisfaction</p>
+          </div>
+          <div>
+            <h3 class="counter" data-target="100%">0</h3>
+            <p>Quality Assurance</p>
+          </div>
+          <div>
+            <h3 class="counter" data-target="100%">0</h3>
+            <p>On-Time Delivery</p>
+          </div>
+          <div>
+            <h3 class="counter" data-target="100%">0</h3>
+            <p>Reliable Support</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries">
+      <div class="container text-center">
+        <h2>Industries We Serve</h2>
+        <p>Delivering excellence across multiple sectors</p>
+        <div class="industries-grid">
+          {% for i in industries %}
+          <a href="/industries/#industry{{ i.id }}">
+            <div class="industry">{{ i.name }}</div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Slider -->
+    <section class="testimonials nopx">
+      <div class="container text-center">
+        <h2>Our Products & Services</h2>
+        <p>Comprehensive industrial solutions for your business needs</p>
+      </div>
+
+      <div class="swiper">
+        <div class="card-wrapper">
+          <ul class="card-list swiper-wrapper">
+
+            {% for p in products %}
+            <li class="card-item swiper-slide">
+              <a href="/products/#product{{ p.id }}" class="card-link">
+                <img
+                  src="/media/{{ p.image }}"
+                  class="card-image"
+                />
+                <p class="badge">{{ p.name }}</p>
+                <!-- <h2 class="card-title">An image slider is a web element that displays multiple images in a
+                rotating format, allowing users to navigate through visuals using arrows or indicators.</h2> -->
+              </a>
+            </li>
+            {% endfor %}
+
+          </ul>
+
+          <div class="swiper-pagination"></div>
+          <div class="swiper-slide-button swiper-button-prev"></div>
+          <div class="swiper-slide-button swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose nopx">
+      <div class="container text-center">
+        <h2>Why Choose Rotex Enterprises?</h2>
+        <p>Experience the difference of working with industry leaders</p>
+        <div class="why-choose-grid">
+          <div class="choose-item">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Industry-leading expertise</h3>
+          </div>
+          <div class="choose-item">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Comprehensive quality</h3>
+          </div>
+          <div class="choose-item">
+            <i class="fas fa-headset"></i>
+            <h3>Dedicated customer support</h3>
+          </div>
+          <div class="choose-item">
+            <i class="fas fa-cogs"></i>
+            <h3>Customized solutions</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta nopx">
+      <div class="container text-center">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Contact us today to discuss how we can help your business thrive</p>
+        <button id="showEnquiryBtn" class="btn btn-primary">Enquiry Now</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footerbg" class="new_footer_area bg_color">
+      <div class="new_footer_top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6" style="z-index: 9999">
+              <div
+                class="f_widget company_widget wow fadeInLeft"
+                data-wow-delay="0.2s"
+                style="
+                  visibility: visible;
+                  animation-delay: 0.2s;
+                  animation-name: fadeInLeft;
+                "
+              >
+                <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
+                <p>Don’t miss any updates of our new projects and more.</p>
+
+                <form
+                  action="#"
+                  class="f_subscribe_two mailchimp"
+                  method="post"
+                  _lpchecked="1"
+                >
+                  <input
+                    type="text"
+                    name="EMAIL"
+                    class="form-control memail"
+                    style="border-radius: 15px; background: transparent"
+                    placeholder="Enter your email id"
+                    required
+                  />
+                  <button class="btn btn_get btn_get_two" type="submit" disabled>
+                    Subscribe
+                  </button>
+                  <p class="mchimp-errmessage" style="display: none"></p>
+                  <p class="mchimp-sucmessage" style="display: none"></p>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6" style="z-index: 9999">
+              <div
+                class="f_widget about-widget pl_70 wow fadeInLeft"
+                data-wow-delay="0.4s"
+                style="
+                  visibility: visible;
+                  animation-delay: 0.4s;
+                  animation-name: fadeInLeft;
+                "
+              >
+                <h3 class="f-title f_600 t_color f_size_18">Quick Links</h3>
+                <ul class="list-unstyled f_list">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="about">About</a></li>
+                  <li><a href="products">Products</a></li>
+                  <li><a href="industries">Industries</a></li>
+                  <li><a href="quality">Quality</a></li>
+                  <li><a href="contact">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6" style="z-index: 9999">
+              <div
+                class="f_widget about-widget pl_70 wow fadeInLeft"
+                data-wow-delay="0.6s"
+                style="
+                  visibility: visible;
+                  animation-delay: 0.6s;
+                  animation-name: fadeInLeft;
+                "
+              >
+                <h3 class="f-title f_600 t_color f_size_18">Products / Services</h3>
+                <ul class="list-unstyled f_list">
+                  {% for p in products %}
+                  <li><a href="/products/#product{{ p.id }}">{{ p.name }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6" style="z-index: 9999">
+              <div
+                class="f_widget social-widget pl_70 wow fadeInLeft"
+                data-wow-delay="0.8s"
+                style="
+                  visibility: visible;
+                  animation-delay: 0.8s;
+                  animation-name: fadeInLeft;
+                "
+              >
+                <h3 class="f-title f_600 t_color f_size_18">Connect With Us</h3>
+                <div class="f_social_icon">
+                  <a href="{{ contact.linkdin }}" class="fab fa-linkedin" target="_blank"></a>
+                  <a href="{{ contact.facebook }}" class="fab fa-facebook" target="_blank"></a>
+                  <a href="{{ contact.twitter }}" class="fab fa-twitter" target="_blank"></a>
+                  <a href="{{ contact.instagram }}" class="fab fa-instagram" target="_blank"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer_bg">
+          <div class="footer_bg_one"></div>
+          {% comment %} <div class="footer_bg_two"></div> {% endcomment %}
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6 col-sm-7">
+              <p class="mb-0 f_400">
+                © Rotex Enterprises 2025 All rights reserved.
+              </p>
+            </div>
+            <div class="col-lg-6 col-sm-5 text-right">
+              <p>
+                Made by
+                <a href="https://in.linkedin.com/in/lkchaudhary" target="_blank"
+                  >Lalit Chaudhary</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Enquiry Modal -->
+    <div id="enquiryModal" class="modal">
+      <div class="modal-content">
+        <span class="close close-enquiry">&times;</span>
+        <h3 class="modal-title">SEND YOUR ENQUIRY</h3>
+        <form id="enquiryForm">
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter Person or Company Name"
+            required
+          />
+          <div class="form-row">
+            <input type="email" id="email" placeholder="Your Email ID" />
+            <input
+              type="tel"
+              pattern="[0-9]{9,13}"
+              id="phone"
+              placeholder="Your Mobile Number"
+            />
+          </div>
+          <textarea
+            id="message"
+            placeholder="Your Message (Optional)"
+          ></textarea>
+          <button id="submitEnquiry" type="submit" class="submit-btn">
+            Send Enquiry
+            <div class="btn-loader"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="modal">
+      <div class="modal-content thank-you ty-content">
+        <i class="fas fa-check-circle"></i>
+        <h2>Thank You!</h2>
+        <p>
+          Your enquiry has been submitted successfully. We will contact you very
+          soon
+        </p>
+      </div>
+    </div>
+
+    <!-- Snackbar -->
+    <div id="snackbar"></div>
+
+    <script>
+      window.addEventListener("load", function () {
+        document.querySelector("body").classList.add("loaded");
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static 'assets/js/index.js' %}"></script>
+    <script src="{% static 'assets/js/enq-popup.js' %}"></script>
+  </body>
+</html>

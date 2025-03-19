@@ -1,0 +1,271 @@
+/* styles.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to right, #dee1fa, #ecfeff, #ecfeff, #dee1fa);
+    color: #4a5568;
+}
+
+main {
+    padding-top: 5rem !important;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+.hero-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.858);
+    color: #1e40af;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background: transparent;
+    color: white;
+}
+
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to bottom, #387ae7, #a1b7e7);
+    color: white;
+    text-align: center;
+    padding: 100px 20px 50px;
+}
+
+.hero-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.hero-desc {
+    max-width: 850px;
+    text-align: center;
+    justify-self: center;
+    font-size: 18px;
+}
+
+
+/* Section Styles */
+.section {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.section h1,
+.section h2 {
+    color: #1a202c;
+    margin-bottom: 20px;
+}
+
+.section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    animation: fadeInDown 1s ease-out;
+}
+
+.section h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    animation: fadeInDown 1s ease-out;
+}
+
+.section p {
+    color: #4a5568;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Card Styles */
+.card {
+    background-color: #ffffff75;
+    padding: 1.2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(29, 78, 216, 0.1), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card h3 {
+    color: #1a202c;
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.card:hover h3 {
+    color: #1d4ed8;
+}
+
+.card p {
+    color: #4a5568;
+    transition: color 0.3s ease-in-out;
+}
+
+.card:hover p {
+    color: #2d3748;
+}
+
+.card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.card ul li {
+    margin-bottom: 8px;
+}
+
+.card ul li i {
+    margin-right: 8px;
+    color: #1d4ed8;
+}
+
+/* Image Styles */
+.card img {
+    width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    gap: 32px;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+
+    .grid-cols-2,
+    .grid-cols-3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+.myteam {
+    margin-bottom: 5px !important;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Hover Effects */
+.hover-zoom:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.hover-bg:hover {
+    background-color: #f0f4f8;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.hover-text:hover {
+    color: #1d4ed8;
+    transition: color 0.3s ease-in-out;
+}

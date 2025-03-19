@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotex Enterprises - Quality</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/css/preloadar.css' %}">
+
+    <meta name="apple-mobile-web-app-title" content="Rotex" />
+    <link rel="icon" type="image/png" href="{% static 'assets/favicon/favicon-96x96.png' %}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'assets/favicon/favicon.svg' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/favicon/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/favicon/apple-touch-icon.png' %}" />
+    <link rel="manifest" href="{% static 'assets/favicon/site.webmanifest' %}" />
+
+    <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css'>
+    <link rel="stylesheet" href="{% static 'assets/css/mytailwind.css' %}"/>
+    <link rel="stylesheet" href="{% static 'assets/css/pdf-modal.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/quality.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/navbar.css' %}">
+
+</head>
+
+<body>
+
+    <div class="loader-wrapper">
+        <div class="loader">
+        </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="{% static 'assets/logo/logo_trans.png' %}" alt="Rotex Enterprises Logo" class="logo-img">
+              </div>
+            <div class="nav-links" id="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/products">Products</a>
+                <a href="/industries">Industries</a>
+                <a class="alink" href="/quality">Quality</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+        <h1 class="hero-title">Quality Excellence</h1>
+        <p class="hero-subtitle">Our unwavering commitment to quality in every product and service</p>
+        <div class="hero-buttons">
+            <button class="btn-primary" onclick="smoothScrollTo('our-certificate', 2000);">Our Certifications</button>
+            <button class="btn-secondary" onclick="smoothScrollTo('our-quality-process', 2000);">Quality
+                Process</button>
+        </div>
+    </section>
+
+    <main id="mainbg" class="container mx-auto px-2 py-4 lg:px-8 xl:px-12">
+
+        <!-- Metrics Section -->
+        <section class="metrics mx-auto px-4 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 nopx">
+            <div class="metric-card slide-up">
+                <div class="metric-icon"><i class="fas fa-star"></i></div>
+                <h2 class="metric-value">99.8%</h2>
+                <p class="metric-label">First-Pass Yield</p>
+                <p class="metric-description">Products that pass quality inspection on the first attempt</p>
+            </div>
+            <div class="metric-card slide-up">
+                <div class="metric-icon"><i class="fas fa-shield-alt"></i></div>
+                <h2 class="metric-value">&lt;0.1%</h2>
+                <p class="metric-label">Defect Rate</p>
+                <p class="metric-description">Industry-leading low defect rate across all product lines</p>
+            </div>
+            <div class="metric-card slide-up">
+                <div class="metric-icon"><i class="fas fa-search"></i></div>
+                <h2 class="metric-value">100%</h2>
+                <p class="metric-label">Traceability</p>
+                <p class="metric-description">Complete traceability of all components and processes</p>
+            </div>
+            <div class="metric-card slide-up">
+                <div class="metric-icon"><i class="fas fa-clock"></i></div>
+                <h2 class="metric-value">24hr</h2>
+                <p class="metric-label">Response Time</p>
+                <p class="metric-description">Maximum response time for quality-related inquiries</p>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="our-certificate" class="certifications nopx">
+            <h2 class="section-title fade-in">Our Certifications</h2>
+            <p class="section-subtitle fade-in">Internationally recognized standards that validate our commitment to
+                quality
+            </p>
+
+            <!-- IMG Certifications -->
+            <div class="certification-cards grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
+                <div class="certification-card slide-up">
+                    <img src="/media/{{ certi.iso1_image }}" alt="{{ certi.iso1_name }} Certification"
+                        class="certificate-img">
+                    <h3 class="certification-title">{{ certi.iso1_name }}</h3>
+                </div>
+
+                <div class="certification-card slide-up">
+                    <img src="/media/{{ certi.iso2_image }}" alt="{{ certi.iso2_name }} Certification"
+                        class="certificate-img">
+                    <h3 class="certification-title">{{ certi.iso1_name }}</h3>
+                </div>
+
+                <div class="certification-card slide-up">
+                    <img src="/media/{{ certi.iso3_image }}" alt="{{ certi.iso3_name }} Certification"
+                        class="certificate-img">
+                    <h3 class="certification-title">{{ certi.iso1_name }}</h3>
+                </div>
+
+            </div>
+
+            <!-- PDF Certifications -->
+
+            <div class="certification-cards grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+
+                {% if certi.show_gst == True %}
+                <div href="/media/{{ certi.gst_pdf }}" class="pdf certification-card slide-up">
+                    <img src="{% static 'assets/img/certificate/gst-logo.jpg' %}" alt="GST Certificate" class="certificate-img-pdf">
+                    <h3 class="certification-title">GST Certificate</h3>
+                </div> 
+                {% endif %}
+
+                {% if certi.show_udyam == True %}
+                <div href="/media/{{ certi.udyam_pdf }}" class="pdf certification-card slide-up">
+                    <img src="{% static 'assets/img/certificate/udyam-logo.png' %}" alt="UDYAM Certificate"
+                        class="certificate-img-pdf">
+                    <h3 class="certification-title">UDYAM Certificate</h3>
+                </div>
+                {% endif %}
+                
+            </div> 
+
+        </section>
+
+        <!-- Quality Control Process Section -->
+        <section id="our-quality-process" class="quality-process nopx">
+            <h2 class="section-title fade-in">Quality Control Process</h2>
+            <p class="section-subtitle fade-in">Our comprehensive approach to ensuring product excellence</p>
+            <div class="process-cards grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="process-card slide-up">
+                    <div class="process-icon"><i class="fas fa-bolt"></i></div>
+                    <h3 class="process-title">Material Testing</h3>
+                    <p class="process-description">Rigorous testing of all raw materials and components to ensure they
+                        meet
+                        our exacting standards.</p>
+                </div>
+                <div class="process-card slide-up">
+                    <div class="process-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="process-title">Production Quality Control</h3>
+                    <p class="process-description">Continuous monitoring throughout the manufacturing process to
+                        identify
+                        and address issues immediately.</p>
+                </div>
+                <div class="process-card slide-up">
+                    <div class="process-icon"><i class="fas fa-check-circle"></i></div>
+                    <h3 class="process-title">Final Inspection</h3>
+                    <p class="process-description">Comprehensive testing of finished products to ensure they meet all
+                        quality and performance requirements.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Call to Action Section -->
+    <section class="cta nopx">
+        <div class="cta-content fade-in">
+            <h2 class="cta-title">Experience Our Quality Difference</h2>
+            <p class="cta-subtitle">Contact us today to learn more about our quality processes and how they can benefit
+                your business.</p>
+            <div class="cta-buttons">
+                <a href="/contact">
+                    <button class="btn-primary">Contact Us</button>
+                </a>
+                <a href="/products">
+                    <button class="btn-secondary">View Products</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Certificate Image" class="modal-image">
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+          document.querySelector('body').classList.add("loaded")
+        });
+      </script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js'></script>
+    <script src="{% static 'assets/js/quality.js' %}"></script>
+
+</body>
+
+</html>

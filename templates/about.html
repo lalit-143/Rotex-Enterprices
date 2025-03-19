@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Rotex Enterprises</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/css/preloadar.css' %}" />
+
+    <meta name="apple-mobile-web-app-title" content="Rotex" />
+    <link rel="icon" type="image/png" href="{% static 'assets/favicon/favicon-96x96.png' %}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'assets/favicon/favicon.svg' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/favicon/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/favicon/apple-touch-icon.png' %}" />
+    <link rel="manifest" href="{% static 'assets/favicon/site.webmanifest' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://public.codepenassets.com/css/normalize-5.0.0.min.css"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="{% static 'assets/css/about.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/css/navbar.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'assets/css/mytailwind.css' %}" />
+  </head>
+
+  <body>
+    <div class="loader-wrapper">
+      <div class="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+          <img src="{% static 'assets/logo/logo_trans.png' %}" alt="Rotex Enterprises Logo" class="logo-img">
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="/">Home</a>
+          <a class="alink" href="/about">About</a>
+          <a href="/products">Products</a>
+          <a href="/industries">Industries</a>
+          <a href="/quality">Quality</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero fade-in">
+      <h1 class="hero-title">About Rotex Enterprises</h1>
+      <p class="hero-subtitle">
+        Building the future through engineering excellence
+      </p>
+      <p class="hero-desc">
+        Rotex Enterprises began with a simple vision and is now a leader in
+        industrial solutions. Our progress is built on innovation, strong
+        values, and a promise to serve our clients better.
+      </p>
+      <div class="hero-buttons">
+        <a href="/quality/#our-certificate" class="btn-secondary"> Our Certifications </a>
+      </div>
+    </section>
+
+    <main class="container mx-auto px-4 lg:px-12 py-4">
+      <section class="section grid grid-cols-1 md:grid-cols-2 gap-8 fade-in">
+        <div class="card hover-zoom hover-bg">
+          <i class="fas fa-bullseye text-4xl text-blue-600 mb-4"></i>
+          <h2 class="hover-text">Our Mission</h2>
+          <p>
+            Our goal is to provide new and smart industrial solutions that help
+            businesses grow, improve efficiency, and maintain top quality while
+            always ensuring customer happiness and satisfaction.
+          </p>
+        </div>
+        <div class="card hover-zoom hover-bg">
+          <i class="fas fa-award text-4xl text-blue-600 mb-4"></i>
+          <h2 class="hover-text">Our Vision</h2>
+          <p>
+            We aim to become the leading global name in industrial solutions,
+            known for creative ideas, reliable quality, and a strong commitment
+            to nature, sustainability, and long-term growth.
+          </p>
+        </div>
+      </section>
+      <section class="section fade-in">
+        <h2>Our Core Values</h2>
+        <p>The principles that guide everything we do</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card hover-shadow">
+            <i class="fas fa-shield-alt text-4xl text-blue-600 mb-4"></i>
+            <h3 class="hover-text">Quality</h3>
+            <p>
+              We uphold the highest standards in all our products and services.
+            </p>
+          </div>
+          <div class="card hover-shadow">
+            <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
+            <h3 class="hover-text">Customer Focus</h3>
+            <p>Our clients' success drives us and keeps us always motivated.</p>
+          </div>
+          <div class="card hover-shadow">
+            <i class="fas fa-lightbulb text-4xl text-blue-600 mb-4"></i>
+            <h3 class="hover-text">Innovation</h3>
+            <p>We constantly evolve and adapt to overcome future challenges.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section fade-in">
+        <h2>Our Leadership Team</h2>
+        <p>Meet the experts behind our success</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card hover-shadow">
+            <img src="{% static 'assets/img/men-icon.png' %}" alt="Ganpat Choudhary" />
+            <h3 class="myteam hover-text">Ganpat Choudhary</h3>
+            <p class="myteam text-blue-600">Company Chairman & Director</p>
+          </div>
+          <div class="card hover-shadow">
+            <img src="{% static 'assets/img/men-icon.png' %}" alt="Manohar Choudhary" />
+            <h3 class="myteam hover-text">Manohar Choudhary</h3>
+            <p class="myteam text-blue-600">Production Head</p>
+          </div>
+          <div class="card hover-shadow">
+            <img src="{% static 'assets/img/men-icon.png' %}" alt="Ganpat Choudhary" />
+            <h3 class="myteam hover-text">Ganpat Choudhary</h3>
+            <p class="myteam text-blue-600">Marketing Head & Research</p>
+          </div>
+        </div>
+      </section>
+      <section class="section fade-in">
+        <h2>Why Choose Us</h2>
+        <p>What sets us apart from the competition</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card hover-shadow">
+            <h3 class="hover-text">Industry Expertise</h3>
+            <ul>
+              <li>
+                <i class="fas fa-check text-blue-600 mr-2"></i>Innovative
+                approach to solving industry challenges
+              </li>
+              <li>
+                <i class="fas fa-check text-blue-600 mr-2"></i>Specialized
+                knowledge across multiple sectors
+              </li>
+              <li>
+                <i class="fas fa-check text-blue-600 mr-2"></i>Dedicated to
+                continuous growth and improvement
+              </li>
+            </ul>
+          </div>
+          <div class="card hover-shadow">
+            <h3 class="hover-text">Customer Commitment</h3>
+            <ul>
+              <li>
+                <i class="fas fa-check text-blue-600 mr-2"></i>Customized
+                solutions to match your needs
+              </li>
+              <li>
+                <i class="fas fa-check text-blue-600 mr-2"></i>Long-term
+                partnerships for business growth
+              </li>
+              <li>
+                <i class="fas fa-check text-blue-600 mr-2"></i>High-quality
+                products with reliable service
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      window.addEventListener("load", function () {
+        document.querySelector("body").classList.add("loaded");
+      });
+    </script>
+
+    <script src="{% static 'assets/js/about.js' %}"></script>
+  </body>
+</html>

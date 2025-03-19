@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Rotex Enterprises - Contact</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/css/preloadar.css' %}">
+
+    <meta name="apple-mobile-web-app-title" content="Rotex" />
+    <link rel="icon" type="image/png" href="{% static 'assets/favicon/favicon-96x96.png' %}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'assets/favicon/favicon.svg' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/favicon/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/favicon/apple-touch-icon.png' %}" />
+    <link rel="manifest" href="{% static 'assets/favicon/site.webmanifest' %}" />
+
+    <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"/>
+
+    <link rel="stylesheet" href="{% static 'assets/css/mytailwind.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/contact.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/navbar.css' %}" />
+</head>
+
+<body>
+
+    <div class="loader-wrapper">
+        <div class="loader">
+        </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="{% static 'assets/logo/logo_trans.png' %}" alt="Rotex Enterprises Logo" class="logo-img">
+              </div>
+            <div class="nav-links" id="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/products">Products</a>
+                <a href="/industries">Industries</a>
+                <a href="/quality">Quality</a>
+                <a class="alink" href="/contact">Contact</a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section fade-in">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16">
+            <h1 class="text-4xl font-bold mb-6">Get in Touch</h1>
+            <p class="text-lg mb-10">We're here to answer your questions and help your business thrive</p>
+            <div class="hero-btns">
+                <button class="btn-primary" onclick="smoothScrollTo('contact-form', 2000);">Send a Message</button>
+                <a href="tel:{{ contact.phone1 }}">
+                    <button class="btn-secondary">Call Us Now <i class="fas fa-phone-alt ml-2"></i></button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info fade-in">
+        <div class="container mx-auto px-4 md:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt text-blue-600 text-4xl mb-6"></i>
+                <h3 class="text-2xl font-semibold mb-4">Our Location</h3>
+                <p class="text-gray-700 mb-4">{{ contact.address }}</p>
+                <button class="" onclick="smoothScrollTo('mymap', 2000);"><a>View On Map</a></button>
+
+            </div>
+            <div class="info-card">
+                <i class="fas fa-phone-alt text-blue-600 text-4xl mb-6"></i>
+                <h3 class="text-2xl font-semibold mb-4">Phone &amp; Email</h3>
+                <a class="hover:underline" href="tel:{{ contact.urgent_phone }}">
+                    <p class="text-gray-700 mb-2" style="margin-bottom:5px">{{ contact.urgent_phone }}</p>
+                </a>
+                <a class="hover:underline" href="tel:{{ contact.phone1 }}">
+                    <p class="text-gray-700 mb-2" style="margin-bottom:5px">{{ contact.phone1 }}</p>
+                </a>
+                <a class="hover:underline" href="tel:{{ contact.phone2 }}">
+                    <p class="text-gray-700 mb-2" style="margin-bottom:5px">{{ contact.phone2 }}</p>
+                </a>
+                <a class="hover:underline" href="mailto:{{ contact.email }}">
+                    <p class="text-gray-700 mb-4 line-clamp-2">{{ contact.email }}</p>
+                </a>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-clock text-blue-600 text-4xl mb-6"></i>
+                <h3 class="text-2xl font-semibold mb-4">Business Hours</h3>
+                <p class="text-gray-700 mb-2">Monday - Saturday</p>
+                <p class="text-gray-700 mb-2">{{ contact.business_hours }}</p>
+                <p class="text-gray-700">Sunday: Closed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact-form" class="contact-form fade-in">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16">
+            <div class="form-container">
+                <h2 class="text-3xl font-bold mb-8">Send Us a Message</h2>
+                <form id="contactForm" class="space-y-6">
+                    {% csrf_token %}
+                    <div>
+                        <label class="block text-gray-700 mb-2" for="full-name">Person / Company Name</label>
+                        <input class="w-full border border-gray-300 p-3 rounded focus-animate" id="name"
+                            placeholder="Enter your full name or company name..." type="text" required />
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2" for="number">Mobile Number</label>
+                            <input class="w-full border border-gray-300 p-3 rounded focus-animate" id="phone"
+                                placeholder="Enter your mobile number..." type="tel" pattern="[0-9]{9,13}" />
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2" for="email">Email Address</label>
+                            <input class="w-full border border-gray-300 p-3 rounded focus-animate" id="email"
+                                placeholder="Enter your email address..." type="email" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 mb-2" for="message">Message</label>
+                        <textarea class="w-full border border-gray-300 p-3 rounded focus-animate" id="message"
+                            placeholder="Please provide details about your enquiry..." rows="3" required></textarea>
+                    </div>
+                    <button id="submitContact" class="btn-submit" type="submit">Send Message <div class="btn-loader">
+                        </div> <i class="fas fa-paper-plane ml-2"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="mymap" class="map-section fade-in">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16">
+            <div class="map-container">
+                <iframe class="w-full h-64 object-cover rounded-lg mb-6"
+                    src="{{ contact.add_url }}"
+                    allowfullscreen="" loading="lazy"></iframe>
+                <div class="font-semibold">{{ contact.address }}</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgent Assistance -->
+    <section class="urgent-assistance fade-in">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 text-center">
+            <h2 class="text-3xl font-bold mb-6">Need Urgent Assistance?</h2>
+            <p class="text-lg mb-10">Our customer support team is available to help you with any urgent inquiries.</p>
+            <a href="tel:{{ contact.urgent_phone }}">
+                <button class="btn-primary">Call Our Support Team <i class="fas fa-phone-alt ml-2"></i></button>
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section fade-in">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16">
+            <h2 class="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="faq-card">
+                    <h3 class="text-2xl font-semibold mb-4">What are your typical response times?</h3>
+                    <p class="text-gray-700">We aim to respond to all inquiries within 24 hours during business days.
+                        For urgent matters, please call our support line.</p>
+                </div>
+                <div class="faq-card">
+                    <h3 class="text-2xl font-semibold mb-4">Do you offer international shipping?</h3>
+                    <p class="text-gray-700">Yes, we ship our products internationally. Shipping costs and delivery
+                        times vary by location.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footerbg" class="footer fade-in">
+        <div class="container mx-auto px-4 md:px-8 lg:px-16 text-center">
+            <h3 class="text-2xl font-semibold mb-6">Connect with us</h3>
+            <div class="space-x-4">
+                <a class="text-blue-600 hover:text-blue-800 hover-animate" href="{{ contact.linkdin }}" target="_blank">
+                    <i class="fab fa-linkedin text-3xl"></i></a>
+                <a class="text-blue-600 hover:text-blue-800 hover-animate" href="{{ contact.facebook }}" target="_blank">
+                    <i class="fab fa-facebook text-3xl"></i></a>
+                <a class="text-blue-600 hover:text-blue-800 hover-animate" href="{{ contact.twitter }}" target="_blank">
+                    <i class="fab fa-twitter text-3xl"></i></a>
+                <a class="text-blue-600 hover:text-blue-800 hover-animate" href="{{ contact.instagram }}" target="_blank">
+                    <i class="fab fa-instagram text-3xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content thank-you ty-content">
+            <i class="fas fa-check-circle"></i>
+            <h2 class="text-2xl font-bold m-2">Thank You!</h2>
+            <p>Your enquiry has been submitted successfully. We will contact you very soon</p>
+        </div>
+    </div>
+
+    <!-- Snackbar Modal -->
+    <div id="snackbar"></div>
+
+    <script>
+        window.addEventListener('load', function () {
+            document.querySelector('body').classList.add("loaded")
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script src="{% static 'assets/js/contact.js' %}"></script>
+
+</body>
+
+</html>
