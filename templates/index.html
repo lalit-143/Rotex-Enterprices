@@ -3,17 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rotex Enterprises</title>
+    <title>Rotex Enterprise</title>
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'assets/css/preloadar.css' %}" />
 
     <meta name="apple-mobile-web-app-title" content="Rotex" />
-    <link rel="icon" type="image/png" href="{% static 'assets/favicon/favicon-96x96.png' %}" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="{% static 'assets/favicon/favicon.svg' %}" />
-    <link rel="shortcut icon" href="{% static 'assets/favicon/favicon.ico' %}" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/favicon/apple-touch-icon.png' %}" />
-    <link rel="manifest" href="{% static 'assets/favicon/site.webmanifest' %}" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'assets/favicon/favicon-96x96.png' %}"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="{% static 'assets/favicon/favicon.svg' %}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{% static 'assets/favicon/favicon.ico' %}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'assets/favicon/apple-touch-icon.png' %}"
+    />
+    <link
+      rel="manifest"
+      href="{% static 'assets/favicon/site.webmanifest' %}"
+    />
 
     <link
       rel="stylesheet"
@@ -58,15 +77,20 @@
     <nav class="navbar">
       <div class="container navbar-container">
         <div class="logo">
-          <img src="{% static 'assets/logo/logo_trans.png' %}" alt="Rotex Enterprises Logo" class="logo-img">
+          <img
+            src="{% static 'assets/logo/logo_trans.png' %}"
+            alt="Rotex Enterprise Logo"
+            class="logo-img"
+          />
         </div>
         <div class="nav-links" id="nav-links">
-          <a class="alink" href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/products">Products</a>
-          <a href="/industries">Industries</a>
-          <a href="/quality">Quality</a>
-          <a href="/contact">Contact</a>
+          <a class="alink" href="/">HOME</a>
+          <a href="/about">ABOUT</a>
+          <a href="/products">PRODUCTS</a>
+          <a href="/industries">INDUSTRIES</a>
+          <a href="/quality">QUALITY</a>
+          <a href="/blog">BLOG</a>
+          <a href="/contact">CONTACT US</a>
         </div>
         <button class="menu-toggle" id="menu-toggle">☰</button>
       </div>
@@ -82,9 +106,15 @@
     >
       <div class="hero-overlay"></div>
       <div class="hero-content">
+        <img
+          src="{% static 'assets/logo/icon_trans.png' %}"
+          alt="Rotex Enterprise Logo"
+          class="hero-logo"
+        />
         <h1>Engineering Through Innovation</h1>
         <p>
-          Leading provider of industrial solutions and retail showrooms with a commitment to quality and innovation.
+          Leading provider of industrial solutions and retail showrooms with a
+          commitment to quality and innovation.
         </p>
         <div class="hero-buttons">
           <a href="products" class="btn-primary">Explore Our Products</a>
@@ -151,7 +181,6 @@
             <h3 class="counter" data-target="100%">0</h3>
             <p>Reliable Support</p>
           </div>
-
         </div>
       </div>
     </section>
@@ -181,21 +210,16 @@
       <div class="swiper">
         <div class="card-wrapper">
           <ul class="card-list swiper-wrapper">
-
             {% for p in products %}
             <li class="card-item swiper-slide">
               <a href="/products/#product{{ p.id }}" class="card-link">
-                <img
-                  src="/media/{{ p.image }}"
-                  class="card-image"
-                />
+                <img src="/media/{{ p.image }}" class="card-image" />
                 <p class="badge">{{ p.name }}</p>
                 <!-- <h2 class="card-title">An image slider is a web element that displays multiple images in a
                 rotating format, allowing users to navigate through visuals using arrows or indicators.</h2> -->
               </a>
             </li>
             {% endfor %}
-
           </ul>
 
           <div class="swiper-pagination"></div>
@@ -208,7 +232,7 @@
     <!-- Why Choose Us Section -->
     <section class="why-choose nopx">
       <div class="container text-center">
-        <h2>Why Choose Rotex Enterprises?</h2>
+        <h2>Why Choose Rotex Enterprise?</h2>
         <p>Experience the difference of working with industry leaders</p>
         <div class="why-choose-grid">
           <div class="choose-item">
@@ -264,15 +288,21 @@
                   method="post"
                   _lpchecked="1"
                 >
+                  {% csrf_token %}
                   <input
                     type="text"
                     name="EMAIL"
+                    id="subscription-email"
                     class="form-control memail"
                     style="border-radius: 15px; background: transparent"
                     placeholder="Enter your email id"
                     required
                   />
-                  <button class="btn btn_get btn_get_two" type="submit" disabled>
+                  <button
+                    id="subscribe-button"
+                    class="btn btn_get btn_get_two"
+                    type="submit"
+                  >
                     Subscribe
                   </button>
                   <p class="mchimp-errmessage" style="display: none"></p>
@@ -311,10 +341,14 @@
                   animation-name: fadeInLeft;
                 "
               >
-                <h3 class="f-title f_600 t_color f_size_18">Products / Services</h3>
+                <h3 class="f-title f_600 t_color f_size_18">
+                  Products / Services
+                </h3>
                 <ul class="list-unstyled f_list">
                   {% for p in products %}
-                  <li><a href="/products/#product{{ p.id }}">{{ p.name }}</a></li>
+                  <li>
+                    <a href="/products/#product{{ p.id }}">{{ p.name }}</a>
+                  </li>
                   {% endfor %}
                 </ul>
               </div>
@@ -331,10 +365,26 @@
               >
                 <h3 class="f-title f_600 t_color f_size_18">Connect With Us</h3>
                 <div class="f_social_icon">
-                  <a href="{{ contact.linkdin }}" class="fab fa-linkedin" target="_blank"></a>
-                  <a href="{{ contact.facebook }}" class="fab fa-facebook" target="_blank"></a>
-                  <a href="{{ contact.twitter }}" class="fab fa-twitter" target="_blank"></a>
-                  <a href="{{ contact.instagram }}" class="fab fa-instagram" target="_blank"></a>
+                  <a
+                    href="{{ contact.linkdin }}"
+                    class="fab fa-linkedin"
+                    target="_blank"
+                  ></a>
+                  <a
+                    href="{{ contact.facebook }}"
+                    class="fab fa-facebook"
+                    target="_blank"
+                  ></a>
+                  <a
+                    href="{{ contact.twitter }}"
+                    class="fab fa-twitter"
+                    target="_blank"
+                  ></a>
+                  <a
+                    href="{{ contact.instagram }}"
+                    class="fab fa-instagram"
+                    target="_blank"
+                  ></a>
                 </div>
               </div>
             </div>
@@ -342,7 +392,9 @@
         </div>
         <div class="footer_bg">
           <div class="footer_bg_one"></div>
-          {% comment %} <div class="footer_bg_two"></div> {% endcomment %}
+          {% comment %}
+          <div class="footer_bg_two"></div>
+          {% endcomment %}
         </div>
       </div>
       <div class="footer_bottom">
@@ -350,7 +402,7 @@
           <div class="row align-items-center">
             <div class="col-lg-6 col-sm-7">
               <p class="mb-0 f_400">
-                © Rotex Enterprises 2025 All rights reserved.
+                © Rotex Enterprise 2025 All rights reserved.
               </p>
             </div>
             <div class="col-lg-6 col-sm-5 text-right">

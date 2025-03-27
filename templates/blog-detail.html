@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Rotex Enterprise - {{ blog.title }}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/css/preloadar.css' %}">
+
+    <meta name="apple-mobile-web-app-title" content="Rotex" />
+    <link rel="icon" type="image/png" href="{% static 'assets/favicon/favicon-96x96.png' %}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'assets/favicon/favicon.svg' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/favicon/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/favicon/apple-touch-icon.png' %}" />
+    <link rel="manifest" href="{% static 'assets/favicon/site.webmanifest' %}" />
+    
+    <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/blog-detail.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/navbar.css' %}"/>
+</head>
+
+<body>
+
+    <div class="loader-wrapper">
+        <div class="loader">
+        </div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="{% static 'assets/logo/logo_trans.png' %}" alt="Rotex Enterprise Logo" class="logo-img">
+              </div>
+              <div class="nav-links" id="nav-links">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/products">PRODUCTS</a>
+                <a href="/industries">INDUSTRIES</a>
+                <a href="/quality">QUALITY</a>
+                <a class="alink" href="/blog">BLOG</a>
+                <a href="/contact">CONTACT US</a>
+              </div>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <div id="mainbg" class="main-container">
+
+        <article class="card fade-in">
+
+            <a href="/blog/" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Blog
+            </a>
+
+            <div class="d-flex align-items-center mb-2">
+                <span class="badge">{{ blog.tags|first }}</span>
+            </div>
+
+            <h1 class="title fade-in">
+                {{ blog.title }}
+            </h1>
+
+            <div class="meta fade-in">
+                <span class="read-time">
+                    <i class="fas fa-calendar-alt"></i>
+                    {{ blog.date }}
+                </span>
+                <span class="divider">•</span>
+                <span class="read-time">
+                    <i class="far fa-clock"></i>
+                    {{ blog.readtime }} Min Read Time
+                </span>
+            </div>
+
+            <img src="/media/{{ blog.image }}" alt="{{ blog.title }}"
+                class="featured-image fade-in" />
+
+            <div class="article-content">
+                
+                <!-- <h2 class="subtitle fade-in">Sub Title</h2> -->
+
+                {% for paragraph in blog.content %}
+                <p class="content fade-in">
+                    {{ paragraph }}
+                </p>
+                {% endfor %}
+
+                <div class="tags fade-in">
+                    {% for tag in blog.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+
+                <div class="social-share fade-in">
+                    <div class="share-icons">
+                        <a href="#" aria-label="Share on WhatsApp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" aria-label="Share on Instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Share on Facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="Share on Twitter" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="Share on LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" id="share-button" aria-label="Share via native share">
+                            <i class="fas fa-share-alt"></i>
+                        </a>
+                        <a href="#" id="copy-button" aria-label="Copy link">
+                            <i class="fas fa-link"></i>
+                        </a>
+                    </div>
+                </div>
+
+                {% csrf_token %}
+                <div class="interaction-section fade-in">
+                    <button class="like-button" id="like-button" data-id="{{ blog.id }}" aria-label="Like this article">
+                        <i class="fa-regular fa-thumbs-up" id="like-icon"></i>
+                        <span id="like-count">{{ blog.likes }}</span> likes
+                    </button>
+                </div>
+            </div>
+
+        </article>
+
+    </div>
+
+    <!-- Subscription Section -->
+    <section id="mainbg2" class="subscription">
+        <div class="sub-container">
+            <h2>Stay Updated with Industry Trends</h2>
+            <p>Join our community of industry professionals and stay ahead with the latest insights</p>
+            <div class="email-container">
+                {% csrf_token %}
+                <input placeholder="Enter your email address" type="email" id="subscription-email" />
+                <button id="subscribe-button">Subscribe Now</button>
+            </div>
+        </div>
+    </section>
+
+    <button id="scroll-top" class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="toast" class="toast-notification">URL copied to clipboard</div>
+
+    <script>
+        window.addEventListener('load', function () {
+            document.querySelector('body').classList.add("loaded")
+        });
+    </script>
+
+    <script src="{% static 'assets/js/blog-detail.js' %}"></script>
+
+</body>
+
+</html>
